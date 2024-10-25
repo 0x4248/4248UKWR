@@ -1,14 +1,16 @@
-name: CI
+name: Update data
 
 on:
   schedule:
-  - cron: "0 12 * * *"
+    - cron: "0 12 * * *"
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v4
 
