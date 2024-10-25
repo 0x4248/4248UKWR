@@ -17,6 +17,6 @@ jobs:
 
       - name: Run python script
         run: python src/logger.py
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Format C/C++ code with clang-format"
