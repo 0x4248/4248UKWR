@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  schedule:
+  - cron: "0 12 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install python
+        run: sudo apt-get install python3 python3-requests
+        
+      - name: Run python script
+        run: python src/logger.py
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Format C/C++ code with clang-format"
